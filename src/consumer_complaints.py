@@ -10,7 +10,7 @@ import csv
 from datetime import datetime
 from collections import Counter
 import os
-from tkinter import messagebox
+
 start = datetime.now()
 #use csv_splitter to split file developed by Aziz Alto https://stackoverflow.com/questions/36445193/splitting-one-csv-into-multiple-files-in-python/36445821
 #This was used only for dev purposes to make the file easier to handle
@@ -64,7 +64,7 @@ c = 7
 
 #path = r"C:\Users\liamg_000\Documents\Insight Program\Projects\LSG_Coding_Challenge\To ze Hub\insight_testsuite\tests\your-own-test_1\input\complaints.csv"
 #path = r"C:\Users\liamg_000\Documents\Insight Program\Projects\LSG_Coding_Challenge\To ze Hub\input\complaints.csv"
-inpath = r".\insight_testsuite\tests\your-own-test_1\input\complaints.csv"
+inpath = r"./input/complaints.csv"
 with open(inpath, encoding="utf8") as csvfile:
     csv_reader = iter(csv.reader(csvfile, delimiter = ','))
     #determine if csv file has a header
@@ -80,7 +80,7 @@ with open(inpath, encoding="utf8") as csvfile:
             c = header.index('Company')
             #quick check to make sure header contains proper strings
         except ValueError:
-            messagebox.showerror("Date Format Error","The header contains unknown strings. "
+            print("Date Format Error","The header contains unknown strings. "
                                                      "Confirm the header in the csv file has all three of the following "
                                                      "exactly    Date recieved   Product   Company")
             next(csv_reader)
@@ -90,7 +90,7 @@ with open(inpath, encoding="utf8") as csvfile:
         try:
             datecheck = datetime.strptime(row[d], "%Y-%m-%d")
         except ValueError:
-            messagebox.showerror("Date Format Error",
+            print("Date Format Error",
                                  ("Dates are required to be in YYYY-MM-DD format please contact Liam @ ext xxxx if "
                                   "issue persists. The error is with this data ", row[d]),)
         # getting total year list and unique years out of csv
