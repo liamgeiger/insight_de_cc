@@ -62,8 +62,7 @@ p = 1
 #default company column
 c = 7
 
-#path = r"C:\Users\liamg_000\Documents\Insight Program\Projects\LSG_Coding_Challenge\To ze Hub\insight_testsuite\tests\your-own-test_1\input\complaints.csv"
-#path = r"C:\Users\liamg_000\Documents\Insight Program\Projects\LSG_Coding_Challenge\To ze Hub\input\complaints.csv"
+
 inpath = r"./input/complaints.csv"
 with open(inpath, encoding="utf8") as csvfile:
     csv_reader = iter(csv.reader(csvfile, delimiter = ','))
@@ -179,8 +178,8 @@ final_high_perc_round = [round(num) for num in final_high_perc]
 
 #define output list
 report_list = [(a, b, c, d, e) for a, b, c, d, e in zip(final_productt, final_yeart, final_count, final_number_compt, final_high_perc_round) if a and b and c and d and e]
-#report_list = zip(final_productt, final_yeart, final_count, final_number_compt, final_high_perc_round)
 
+#write to new csv file
 with open('./output/report.csv', 'w', newline= '',encoding="utf8") as report:
     writer = csv.writer(report)
     for row in report_list:
