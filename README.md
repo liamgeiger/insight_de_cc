@@ -1,7 +1,9 @@
 # insight_de_cc
 September 2020 Insight Data Engineering Coding Challenge application
 
-To run the file simply run the shell script "run.sh" with a "complaints.csv" file in the main "input" directory.  Upon running the file a timer is started to compare speeds against previous attempts.
+To run the file simply run the shell script "run.sh" with a "complaints.csv" file in the main "input" directory.  This code was written using python3.
+
+Upon running the file a timer is started to compare speeds against previous attempts.
 
 If the csv has a header the header must contain the following case sensitive strings. (Date received, Product, Company) These strings are used to define the column numbers for the future lists.  If a header is detected without those strings an error message will be printed.  If no header is detected default column numbers will be used.  After the date column is defined the code searches for and confirms that the date format is YYYY-MM-DD for use with the date time function. If the dates are in a different format an error is printed telling the user to adjust the format.
 
